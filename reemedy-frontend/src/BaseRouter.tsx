@@ -17,7 +17,6 @@ function BaseRouter() {
   return (
     <userContext.Provider value={{user, setUser}}>
       <BrowserRouter>
-        <Navbar/>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signIn" element={<SignIn />} />
@@ -31,6 +30,9 @@ function BaseRouter() {
           <Route path="/profile" element={
             user == null? <SignIn/>:<Profile/>}/>
         </Routes>
+        {user && (
+          <Navbar />
+        )}
       </BrowserRouter>
     </userContext.Provider>
   );
