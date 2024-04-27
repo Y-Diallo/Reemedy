@@ -4,8 +4,11 @@
 
 from firebase_functions import https_fn
 from firebase_admin import initialize_app, db
-
 import logging
+from openai import OpenAI
+
+client = OpenAI()
+assistant_id = "boomboomboom"
 
 logger = logging.getLogger('cloudfunctions.googleapis.com%2Fcloud-functions')
 logger.setLevel(logging.INFO)
@@ -53,3 +56,31 @@ def sign_up(req: https_fn.CallableRequest) -> bool:
         return True
     else:
         return False
+    
+@https_fn.on_call()
+def do_chat_message(req: https_fn.CallableRequest) -> str:
+    user_ref = db.reference(f"users/{req.auth.uid}")
+    user = user_ref.get()
+    chat_thread_id = user.chatThreadId
+    run = None
+    if not chat_thread_id:
+        # no chat thread id present, create a new thread
+        all_messages = [chatHistory.message for chatHistory in user.chatHistory].append(
+            {"role": "user", "content": req.data['message']}
+        )
+        run = client.beta.threads.create_and_run_poll({
+            "assistant_id": assistant_id,
+            "thread": {
+                "messages": all_messages
+            }
+        })
+    else:
+        client.beta.threads.messages.create({
+            "role": "user",
+            "content": req.data['message']
+        })
+        run = client.beta.threads.runs.create_and_poll(
+            thread_id=chat_thread_id,
+            assistant_id=assistant_id
+        )
+    logger.info(run)
