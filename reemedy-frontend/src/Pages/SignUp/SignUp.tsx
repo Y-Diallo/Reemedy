@@ -76,7 +76,7 @@ function SignUp() {
                   id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
+                  
                   required
                   className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={(e)=>setEmail(e.target.value)}
@@ -96,7 +96,7 @@ function SignUp() {
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="current-password"
+                  
                   required
                   className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={(e)=>setPassword(e.target.value)}
@@ -113,7 +113,7 @@ function SignUp() {
                   id="password2"
                   name="password"
                   type="password"
-                  autoComplete="password"
+                  
                   required
                   className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={(e)=>setRetypePassword(e.target.value)}
