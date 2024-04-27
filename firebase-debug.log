@@ -1,0 +1,390 @@
+[debug] [2024-04-27T02:02:31.971Z] ----------------------------------------------------------------------
+[debug] [2024-04-27T02:02:31.973Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-04-27T02:02:31.973Z] CLI Version:   11.30.0
+[debug] [2024-04-27T02:02:31.973Z] Platform:      win32
+[debug] [2024-04-27T02:02:31.973Z] Node Version:  v20.11.0
+[debug] [2024-04-27T02:02:31.973Z] Time:          Fri Apr 26 2024 19:02:31 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-27T02:02:31.973Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-27T02:02:31.978Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:02:31.978Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\School 2023-2024\Spring\Hackathon\Reemedy
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-27T02:03:23.013Z] > refreshing access token with scopes: []
+[debug] [2024-04-27T02:03:23.015Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-27T02:03:23.015Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-27T02:03:23.157Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-27T02:03:23.157Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-27T02:03:23.166Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-27T02:03:23.493Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-27T02:03:23.493Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project reemedy-backend (reemedy) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-04-27T02:03:26.511Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-27T02:03:26.511Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:03:26.983Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-27T02:03:26.983Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2024-04-27T02:03:26.984Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2024-04-27T02:03:26.984Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:03:27.609Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2024-04-27T02:03:27.609Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2024-04-27T02:03:37.609Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-27T02:03:37.609Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:03:38.039Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-27T02:03:38.039Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-04-27T02:03:38.040Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/reemedy-backend [none]
+[debug] [2024-04-27T02:03:38.194Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/reemedy-backend 200
+[debug] [2024-04-27T02:03:38.194Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/reemedy-backend {"projectId":"reemedy-backend","projectNumber":"1004649530095","displayName":"reemedy","name":"projects/reemedy-backend","resources":{"hostingSite":"reemedy-backend"},"state":"ACTIVE","etag":"1_ec131ea9-bfd8-4c70-88e3-0cf3dbf68a5b"}
+[debug] [2024-04-27T02:06:55.907Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances databaseId=reemedy-backend-default-rtdb&validateOnly=true
+[debug] [2024-04-27T02:06:55.907Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances {"type":"default_database"}
+[debug] [2024-04-27T02:06:56.411Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances 200
+[debug] [2024-04-27T02:06:56.411Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances {"name":"projects/1004649530095/locations/us-central1/instances/reemedy-backend-default-rtdb","project":"projects/1004649530095","databaseUrl":"https://reemedy-backend-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2024-04-27T02:06:56.412Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances databaseId=reemedy-backend-default-rtdb
+[debug] [2024-04-27T02:06:56.412Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances {"type":"default_database"}
+[debug] [2024-04-27T02:06:56.812Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances 200
+[debug] [2024-04-27T02:06:56.812Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/reemedy-backend/locations/us-central1/instances {"name":"projects/1004649530095/locations/us-central1/instances/reemedy-backend-default-rtdb","project":"projects/1004649530095","databaseUrl":"https://reemedy-backend-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2024-04-27T02:06:59.180Z] >>> [apiv2][query] GET https://reemedy-backend-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2024-04-27T02:06:59.720Z] <<< [apiv2][status] GET https://reemedy-backend-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2024-04-27T02:06:59.720Z] <<< [apiv2][body] GET https://reemedy-backend-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] +  Database Rules for reemedy-backend-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Functions Setup
+[debug] [2024-04-27T02:06:59.722Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:06:59.722Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[debug] [2024-04-27T02:06:59.722Z] [iam] checking project reemedy-backend for permissions ["firebase.projects.get"]
+[debug] [2024-04-27T02:06:59.722Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions [none]
+[debug] [2024-04-27T02:06:59.722Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:06:59.722Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:06:59.846Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions 200
+[debug] [2024-04-27T02:06:59.847Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:06:59.847Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-27T02:06:59.847Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:06:59.848Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-04-27T02:06:59.848Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:07:00.342Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com 200
+[debug] [2024-04-27T02:07:00.343Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-04-27T02:07:00.376Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-27T02:07:00.376Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-04-27T02:07:00.376Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-04-27T02:07:00.376Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:07:00.928Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-04-27T02:07:00.928Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-04-27T02:07:10.929Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-27T02:07:10.930Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:07:11.409Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-27T02:07:11.409Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-04-27T02:07:39.499Z] Running command with virtualenv: command=G:\School 2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat, args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-04-27T02:07:39.510Z] Error: spawn G:\School 2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat ENOENT
+    at notFoundError (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-04-27T02:08:09.945Z] ----------------------------------------------------------------------
+[debug] [2024-04-27T02:08:09.947Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2024-04-27T02:08:09.948Z] CLI Version:   11.30.0
+[debug] [2024-04-27T02:08:09.948Z] Platform:      win32
+[debug] [2024-04-27T02:08:09.948Z] Node Version:  v20.11.0
+[debug] [2024-04-27T02:08:09.948Z] Time:          Fri Apr 26 2024 19:08:09 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-27T02:08:09.948Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-27T02:08:09.953Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:08:09.953Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\School 2023-2024\Spring\Hackathon\Reemedy
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-27T02:08:13.453Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-27T02:08:13.755Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-27T02:08:13.755Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project reemedy-backend (reemedy) 
+[info] 
+=== Functions Setup
+[debug] [2024-04-27T02:08:16.304Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:08:16.304Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[debug] [2024-04-27T02:08:16.304Z] [iam] checking project reemedy-backend for permissions ["firebase.projects.get"]
+[debug] [2024-04-27T02:08:16.304Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions [none]
+[debug] [2024-04-27T02:08:16.304Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:08:16.305Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:08:16.418Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions 200
+[debug] [2024-04-27T02:08:16.418Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:08:16.419Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-27T02:08:16.419Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:08:16.420Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-04-27T02:08:16.420Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:08:16.694Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-27T02:08:16.694Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-04-27T02:08:16.923Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com 200
+[debug] [2024-04-27T02:08:16.923Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [omitted]
+[info] 
+Detected existing codebase(s): default
+
+[info] 
+Overwriting codebase default...
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-04-27T02:08:33.229Z] Running command with virtualenv: command=G:\School 2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat, args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-04-27T02:08:33.239Z] Error: spawn G:\School 2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat ENOENT
+    at notFoundError (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-04-27T02:10:54.151Z] ----------------------------------------------------------------------
+[debug] [2024-04-27T02:10:54.153Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2024-04-27T02:10:54.154Z] CLI Version:   11.30.0
+[debug] [2024-04-27T02:10:54.154Z] Platform:      win32
+[debug] [2024-04-27T02:10:54.154Z] Node Version:  v20.11.0
+[debug] [2024-04-27T02:10:54.154Z] Time:          Fri Apr 26 2024 19:10:54 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-27T02:10:54.154Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-27T02:10:54.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:10:54.159Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\School_2023-2024\Spring\Hackathon\Reemedy
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-27T02:10:56.717Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-27T02:10:57.037Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-27T02:10:57.037Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project reemedy-backend (reemedy) 
+[info] 
+=== Functions Setup
+[debug] [2024-04-27T02:10:58.898Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:10:58.899Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[debug] [2024-04-27T02:10:58.899Z] [iam] checking project reemedy-backend for permissions ["firebase.projects.get"]
+[debug] [2024-04-27T02:10:58.899Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions [none]
+[debug] [2024-04-27T02:10:58.899Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:10:58.899Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:10:59.250Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions 200
+[debug] [2024-04-27T02:10:59.250Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:10:59.250Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-27T02:10:59.250Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:10:59.251Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-04-27T02:10:59.251Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:10:59.782Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com 200
+[debug] [2024-04-27T02:10:59.782Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-04-27T02:10:59.822Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-27T02:10:59.822Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [omitted]
+[info] 
+Detected existing codebase(s): default
+
+[info] 
+Overwriting codebase default...
+
+[info] i  Skipping write of functions/requirements.txt 
+[info] i  Skipping write of functions/.gitignore 
+[info] i  Skipping write of functions/main.py 
+[debug] [2024-04-27T02:11:08.340Z] Running command with virtualenv: command=G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat, args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-04-27T02:11:08.465Z] Error: spawn G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat ENOENT
+    at notFoundError (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-04-27T02:13:58.022Z] ----------------------------------------------------------------------
+[debug] [2024-04-27T02:13:58.024Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2024-04-27T02:13:58.024Z] CLI Version:   11.30.0
+[debug] [2024-04-27T02:13:58.025Z] Platform:      win32
+[debug] [2024-04-27T02:13:58.025Z] Node Version:  v20.11.0
+[debug] [2024-04-27T02:13:58.025Z] Time:          Fri Apr 26 2024 19:13:58 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-27T02:13:58.025Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-27T02:13:58.030Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:13:58.030Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\School_2023-2024\Spring\Hackathon\Reemedy
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-27T02:14:01.128Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-27T02:14:01.437Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-27T02:14:01.437Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project reemedy-backend (reemedy) 
+[info] 
+=== Functions Setup
+[debug] [2024-04-27T02:14:02.868Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:14:02.868Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[debug] [2024-04-27T02:14:02.868Z] [iam] checking project reemedy-backend for permissions ["firebase.projects.get"]
+[debug] [2024-04-27T02:14:02.868Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions [none]
+[debug] [2024-04-27T02:14:02.868Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:14:02.868Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:14:02.976Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions 200
+[debug] [2024-04-27T02:14:02.976Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:14:02.977Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-27T02:14:02.977Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:14:02.977Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-04-27T02:14:02.978Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:14:03.453Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com 200
+[debug] [2024-04-27T02:14:03.453Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-04-27T02:14:03.465Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-27T02:14:03.465Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [omitted]
+[info] 
+Detected existing codebase(s): default
+
+[info] 
+Overwriting codebase default...
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-04-27T02:14:12.358Z] Running command with virtualenv: command=G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat, args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-04-27T02:14:12.406Z] Error: spawn G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat ENOENT
+    at notFoundError (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-04-27T02:16:36.202Z] ----------------------------------------------------------------------
+[debug] [2024-04-27T02:16:36.204Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2024-04-27T02:16:36.204Z] CLI Version:   11.30.0
+[debug] [2024-04-27T02:16:36.204Z] Platform:      win32
+[debug] [2024-04-27T02:16:36.205Z] Node Version:  v20.11.0
+[debug] [2024-04-27T02:16:36.205Z] Time:          Fri Apr 26 2024 19:16:36 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-27T02:16:36.205Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-27T02:16:36.209Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:16:36.209Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\School_2023-2024\Spring\Hackathon\Reemedy
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-27T02:16:38.376Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-27T02:16:38.703Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-27T02:16:38.704Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project reemedy-backend (reemedy) 
+[info] 
+=== Functions Setup
+[debug] [2024-04-27T02:16:40.020Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-27T02:16:40.020Z] > authorizing via signed-in user (youssoupha.d72@gmail.com)
+[debug] [2024-04-27T02:16:40.020Z] [iam] checking project reemedy-backend for permissions ["firebase.projects.get"]
+[debug] [2024-04-27T02:16:40.021Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions [none]
+[debug] [2024-04-27T02:16:40.021Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:16:40.021Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:16:40.147Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions 200
+[debug] [2024-04-27T02:16:40.147Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reemedy-backend:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-27T02:16:40.147Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-27T02:16:40.147Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:16:40.148Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-04-27T02:16:40.148Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/reemedy-backend
+[debug] [2024-04-27T02:16:40.417Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com 200
+[debug] [2024-04-27T02:16:40.417Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-04-27T02:16:40.626Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-27T02:16:40.626Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/reemedy-backend/services/cloudfunctions.googleapis.com [omitted]
+[info] 
+Detected existing codebase(s): default
+
+[info] 
+Overwriting codebase default...
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-04-27T02:16:50.121Z] Running command with virtualenv: command=G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat, args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-04-27T02:16:50.173Z] Error: spawn G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\activate.bat ENOENT
+    at notFoundError (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\YDiallo\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.
