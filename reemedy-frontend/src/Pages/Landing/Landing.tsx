@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import blobImage from '../../assets/Blob_Shape.png'
 import LandingImage from '../../assets/Landing_Img.png'
 function Landing() {
+  const navigate = useNavigate();
+  const handlePageClick = () =>{
+    navigate('/signIn')
+  }
   return (
     <>
-      <div className='relative h-screen w-screen overflow-hidden'>
+      <div className='relative h-screen w-screen overflow-hidden' onClick={handlePageClick}> 
       <img
         src={blobImage}
         alt="Blob"

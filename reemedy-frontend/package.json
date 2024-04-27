@@ -11,6 +11,11 @@
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "firebase": "^10.11.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
