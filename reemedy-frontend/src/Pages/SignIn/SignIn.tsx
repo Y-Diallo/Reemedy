@@ -18,11 +18,13 @@ function SignIn() {
 
   const navigate = useNavigate();
   function routeToSignUp() {
-    navigate("/signUp")
+    navigate("/signUp");
   }
   function doSignIn() {
+    console.log("Sign In button function")
     setPersistence(auth, browserSessionPersistence)
       .then(() => {
+        console.log("Sign In")
         return signInWithEmailAndPassword(auth, email, password).then(
           (userCredential) => {
             // successful sign-in
@@ -38,7 +40,7 @@ function SignIn() {
   return (
     <>
       <div className="relative text-black w-screen h-screen flex flex-col justify-center p-8 overflow-hidden">
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 z-20">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
@@ -46,7 +48,7 @@ function SignIn() {
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <div className="space-y-6">
               <div>
                 <label
                   htmlFor="email"
@@ -56,10 +58,8 @@ function SignIn() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="email"
-                    name="email"
+                    name="email1"
                     type="email"
-                    autoComplete="email"
                     required
                     className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={(e) => setEmail(e.target.value)}
@@ -86,10 +86,8 @@ function SignIn() {
                 </div>
                 <div className="mt-2">
                   <input
-                    id="password"
-                    name="password"
+                    name="password1"
                     type="password"
-                    autoComplete="current-password"
                     required
                     className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={(e) => setPassword(e.target.value)}
@@ -99,14 +97,14 @@ function SignIn() {
 
               <div>
                 <button
-                  type="submit"
+                 
                   className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={doSignIn}
                 >
                   Sign in
                 </button>
               </div>
-            </form>
+            </div>
             <p className="mt-10 text-center text-sm text-gray-500">
               <div
                 className="font-semibold leading-6 text-green-600 hover:text-green-500"
@@ -120,7 +118,7 @@ function SignIn() {
 
         <img
           src={blobImage}
-          className="absolute left-0 object-cover transform scale-150 -top-80 -left-20 z-2"
+          className="absolute -top-80 object-cover transform scale-150 -left-20 z-1"
           alt="Blob 1"
         />
         <img
