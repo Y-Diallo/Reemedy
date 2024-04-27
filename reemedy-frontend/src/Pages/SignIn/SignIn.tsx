@@ -40,7 +40,7 @@ function SignIn() {
   return (
     <>
       <div className="relative text-black w-screen h-screen flex flex-col justify-center p-8 overflow-hidden">
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 z-20">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
@@ -118,7 +118,7 @@ function SignIn() {
 
         <img
           src={blobImage}
-          className="absolute left-0 object-cover transform scale-150 -top-80 -left-20 z-2"
+          className="absolute -top-80 object-cover transform scale-150 -left-20 z-1"
           alt="Blob 1"
         />
         <img

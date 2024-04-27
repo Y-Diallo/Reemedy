@@ -9,7 +9,7 @@ function Navbar() {
   }
   return (
     <nav>
-      <ul className="flex justify-between px-8 py-8">
+      <ul className="">
         <li>
           <Link to="/home">
               <div style={page == "home" ? {color:'#000000'}:{}}/>
