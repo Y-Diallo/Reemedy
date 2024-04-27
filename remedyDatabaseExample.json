@@ -1,0 +1,20 @@
+{
+  "remedy1": {
+		"name":"Bee's Knees",
+		"daysToComplete":10,
+		"description":"It's the bee's knees jim!",
+		"benefits": [
+			"Greatly improves immune health."
+		],
+		"ingredients": [
+			"1 tsp of sugar"
+		],
+		"usageMethod": [
+			"Apply a small amount onto the chin and rub.",
+			"Do a little dance"
+		],
+		"image":"linkToStorage",
+		"averageRating": 3,
+		"timesRated": 1
+	}
+}

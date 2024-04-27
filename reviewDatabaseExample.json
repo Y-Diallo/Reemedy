@@ -1,0 +1,8 @@
+{
+  "remedy1":{
+    "user":"user1",
+    "rating":3,
+    "completed":false,
+    "review":"blah blah blah"
+  }
+}

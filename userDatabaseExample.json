@@ -1,0 +1,24 @@
+{
+  "user1": {
+    "profilePicture": "linkToStorage",
+    "name": "Aiko",
+    "description": "Hey everyone I’m your favorite nutritionist",
+    "isVerified": false,
+    "subscriptionTier": "Free",
+    "onGoingRemedies": [
+      {
+        "rating": 3,
+        "dateStarted": "dateString",
+        "remedyId": "remedy1"
+      }
+    ],
+    "chatThreadId": "openai1",
+    "chatHistory": [
+      {
+        "role": "user",
+        "content": "I have a crazy red rash please help.",
+        "timeStamp": "dateString"
+      }
+    ]
+  }
+}
