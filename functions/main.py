@@ -28,27 +28,15 @@ def sign_up(req: https_fn.CallableRequest) -> bool:
     if not user:
         # temporary preset data
         user_ref.set({
-            "profilePicture": "linkToStorage",
+            "profilePicture": "https://firebasestorage.googleapis.com/v0/b/reemedy-backend.appspot.com/o/profilePhotos%2FbaseProfilePicture.png?alt=media&token=bf180f68-fbc6-4ff2-84b3-8ecf56d8dfee",
             "name": req.data['name'],
             "email": req.data['email'],
-            "description": "Hey everyone I'm your favorite nutritionist",
+            "description": "Hey everyone I'm new to this app!",
             "isVerified": False,
             "subscriptionTier": "Free",
-            "onGoingRemedies": [
-            {
-                "rating": 3,
-                "dateStarted": "dateString",
-                "remedyId": "remedy1"
-            }
-            ],
-            "chatThreadId": "openai1",
-            "chatHistory": [
-            {
-                "role": "user",
-                "content": "I have a crazy red rash please help.",
-                "timeStamp": "dateString"
-            }
-            ]
+            "onGoingRemedies": [],
+            "chatThreadId": "",
+            "chatHistory": []
         })
         return True
     else:
