@@ -1,11 +1,5 @@
 {
   "projects": {
     "default": "reemedy-backend"
-  },
-  "targets": {},
-  "etags": {
-    "reemedy-backend": {
-      "extensionInstances": {}
-    }
   }
 }

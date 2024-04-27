@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv
+set VIRTUAL_ENV=C:\Users\chris\OneDrive\Documents\1. School\UwbHacks\Reemedy\functions\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

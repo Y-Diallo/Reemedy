@@ -1,4 +1,4 @@
-#!G:\School_2023-2024\Spring\Hackathon\Reemedy\functions\venv\Scripts\python.exe
+#!C:\Users\chris\OneDrive\Documents\1. School\UwbHacks\Reemedy\functions\venv\Scripts\python.exe
 # -*- coding: utf-8 -*-
 # Copyright 2024 Google LLC
 #
