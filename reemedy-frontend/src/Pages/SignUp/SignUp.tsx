@@ -7,6 +7,7 @@ import { auth, signUp } from "../../scripts/firebase";
 
 function SignUp() {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
 	const { setUser } = useContext(userContext);
@@ -25,7 +26,7 @@ function SignUp() {
         //successful sign-up
 				setUser(userCredential.user);
         //TODO signUp is an unimplemented cloud function
-        console.log("newSignUp: " + signUp({email: email}));
+        console.log("newSignUp: " + signUp({email: email, name: name}));
         navigate("/home");
       })
     })
@@ -35,6 +36,10 @@ function SignUp() {
   }
   return (
     <>
+      <div>
+          <div>Name</div>
+          <input onChange={(e)=>setName(e.target.value)} type="text" name="name"/>
+      </div>
       <div>
           <div>Email</div>
           <input onChange={(e)=>setEmail(e.target.value)} type="email" name="email"/>

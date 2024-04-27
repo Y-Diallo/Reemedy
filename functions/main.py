@@ -2,8 +2,8 @@
 # To get started, simply uncomment the below code or create your own.
 # Deploy with `firebase deploy`
 
-from firebase_functions import https_fn
-from firebase_admin import initialize_app
+from firebase_functions import https_fn, options
+from firebase_admin import initialize_app, db, auth
 
 initialize_app()
 
@@ -11,3 +11,39 @@ initialize_app()
 @https_fn.on_request()
 def on_request_example(req: https_fn.Request) -> https_fn.Response:
     return https_fn.Response("Hello world!")
+
+
+@https_fn.on_request(
+        cors=True
+)
+def sign_up(req: https_fn.Request) -> https_fn.Response:
+    user_ref = db.reference(f"users/{req.auth.uid}")
+    user = user_ref.get()
+    if not user:
+        # temporary preset data
+        user_ref.set({
+            "profilePicture": "linkToStorage",
+            "name": req.data.name,
+            "email": req.data.email,
+            "description": "Hey everyone I'm your favorite nutritionist",
+            "isVerified": False,
+            "subscriptionTier": "Free",
+            "onGoingRemedies": [
+            {
+                "rating": 3,
+                "dateStarted": "dateString",
+                "remedyId": "remedy1"
+            }
+            ],
+            "chatThreadId": "openai1",
+            "chatHistory": [
+            {
+                "role": "user",
+                "content": "I have a crazy red rash please help.",
+                "timeStamp": "dateString"
+            }
+            ]
+        })
+        return https_fn.Response(True)
+    else:
+        return https_fn.Response(False)
