@@ -9,13 +9,15 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Navbar from "./SharedComponents/Navbar";
 import { useState } from "react";
 import { User } from "firebase/auth";
+import {Remedy} from "./scripts/types"
 import { userContext } from "./scripts/contexts";
+import RemedyPopup from "./Pages/SavedRemedies/RemedyPopup";
 
 function BaseRouter() {
   const [user, setUser] = useState<User | null>(null);
-
+  const [remedy, setRemedy] = useState<Remedy | null>(null); 
   return (
-    <userContext.Provider value={{user, setUser}}>
+    <userContext.Provider value={{user, setUser, remedy, setRemedy}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -29,6 +31,8 @@ function BaseRouter() {
             user == null? <SignIn/>:<Chat/>}/>
           <Route path="/profile" element={
             user == null? <SignIn/>:<Profile/>}/>
+          <Route path="/remedy" element={
+            user == null? <SignIn/>:<RemedyPopup/>}/>
         </Routes>
         {user && (
           <Navbar />
