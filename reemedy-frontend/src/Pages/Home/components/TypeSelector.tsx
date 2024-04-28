@@ -1,8 +1,5 @@
 function TypeSelector() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
 
 export default TypeSelector;

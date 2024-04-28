@@ -31,5 +31,6 @@ export const signUp = httpsCallable(functions, 'sign_up');
 export const makeRecommendation = httpsCallable(functions, 'make_recommendation');
 export const doChatMessage = httpsCallable(functions, 'do_chat_message');
 export const update_assistant = httpsCallable(functions, 'update_assistant');
+export const addRemedy = httpsCallable(functions, 'add_remedy');
 // export const createEvent = httpsCallable(functions, 'createEvent');
 // export const deleteEvent = httpsCallable(functions, 'deleteEvent');

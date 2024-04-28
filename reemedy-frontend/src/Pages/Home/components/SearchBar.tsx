@@ -3,11 +3,10 @@ type SearchBarProps = {
   value: string;
 };
 
-function SearchBar({ updateValue, }: SearchBarProps) {
+function SearchBar({ updateValue }: SearchBarProps) {
   return (
     <>
       <div className="w-full ml-5 mt-5 pr-10">
-
         <div className="relative">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
@@ -34,9 +33,7 @@ function SearchBar({ updateValue, }: SearchBarProps) {
             placeholder="Face mask, cold..."
             required
           />
-          <button
-            className="text-white absolute end-2.5 bottom-2.5 bg-green-600 hover:bg-green-800 font-medium rounded-lg text-sm px-4 py-2"
-          >
+          <button className="text-white absolute end-2.5 bottom-2.5 bg-green-600 hover:bg-green-800 font-medium rounded-lg text-sm px-4 py-2">
             Search
           </button>
         </div>

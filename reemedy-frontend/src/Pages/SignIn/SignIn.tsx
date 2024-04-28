@@ -23,13 +23,13 @@ function SignIn() {
     e.preventDefault();
     setPersistence(auth, browserSessionPersistence)
       .then(() => {
-        console.log("Sign In")
+        console.log("Sign In");
         return signInWithEmailAndPassword(auth, email, password).then(
           (userCredential) => {
             // successful sign-in
             setUser(userCredential.user);
             navigate("/home");
-          }
+          },
         );
       })
       .catch((error) => {
@@ -47,7 +47,7 @@ function SignIn() {
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" onSubmit={(e)=>doSignIn(e)}>
+            <form className="space-y-6" onSubmit={(e) => doSignIn(e)}>
               <div>
                 <label
                   htmlFor="email"
@@ -95,10 +95,7 @@ function SignIn() {
               </div>
 
               <div>
-                <button
-                 
-                  className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
+                <button className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   Sign in
                 </button>
               </div>

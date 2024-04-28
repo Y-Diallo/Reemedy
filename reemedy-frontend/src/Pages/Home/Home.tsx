@@ -1,29 +1,53 @@
 import { useContext, useEffect, useState } from "react";
 import SearchBar from "./components/SearchBar";
-import TypeSelector from "./components/TypeSelector";
 import IndianFlag from "../../assets/Flag_of_India.svg.png";
 import AmericanFlag from "../../assets/Flag_of_the_United_States_(DoS_ECA_Color_Standard).svg.png";
 import SouthAfricanFlag from "../../assets/Flag_of_South_Africa.svg.png";
 import MexicanFlag from "../../assets/Flag_of_Mexico.svg.png";
 import IndonesianFlag from "../../assets/Flag_of_Indonesia.svg.png";
 import JapaneseFlag from "../../assets/Flag_of_Japan.svg.png";
-import { db, makeRecommendation, update_assistant } from '../../scripts/firebase';
+import {
+  db,
+} from "../../scripts/firebase";
 import { onValue, ref } from "firebase/database";
 import { userContext } from "../../scripts/contexts";
+import { Remedy } from "../../scripts/types";
+import RemedyItem from "../SavedRemedies/components/RemedyItem";
 
 function Home() {
-  const {user} = useContext(userContext);
-  const [, setUserData] = useState<unknown>(null);
+  const { user } = useContext(userContext);
+  const [recommendations, setRecommendations] = useState<string[]>([]);
+  const [remedies, setRemedies] = useState<Map<string, Remedy>>(
+    new Map<string, Remedy>(),
+  );
+  const [userData, setUserData] = useState<any>(null);
 
   useEffect(() => {
-    console.log("On profile page")
-    if(user !== null){
-      console.log(user.uid)
+    console.log("On home page");
+    if (user !== null) {
+      console.log(user.uid);
       onValue(ref(db, `users/${user.uid}/`), (snapshot) => {
-        console.log("inside onValue")
+        console.log("inside onValue");
         const data = snapshot.val();
-        console.log(data)
         setUserData(data);
+      });
+      onValue(ref(db, `remedies/`), (snapshot) => {
+        console.log("inside remedies");
+        const data = snapshot.val();
+        const allRemedies = new Map<string, Remedy>();
+        for (const entry in data) {
+          allRemedies.set(entry, data[entry]);
+        }
+        console.log(data);
+        setRemedies(allRemedies);
+        onValue(ref(db, `users/${user.uid}/recommendations`), (snapshot) => {
+          console.log("inside recommendation");
+          const data = snapshot.val();
+          console.log(data);
+          if (data) {
+            setRecommendations(data);
+          }
+        });
       });
     }
   }, []);
@@ -45,12 +69,10 @@ function Home() {
   //   setSelectedCountry(countryId);
   // };
   return (
-    <>
-      <button className="bg-black" onClick={()=>makeRecommendation()}>recommend</button>
-      <button className="bg-black" onClick={()=>update_assistant()}>update_assistant</button>
-      <div className="w-screen h-screen text-black flex flex-col">
+    <div className="w-screen h-screen overflow-y-scroll">
+      <div className="text-black flex flex-col">
         <h1 className="text-3xl font-bold mt-0 ml-5 mt-10">
-          Hello, {"Amanda"}
+          Hello, {userData?.name}
         </h1>
         <SearchBar value={search} updateValue={doSearch} />
 
@@ -72,12 +94,25 @@ function Home() {
             </div>
           ))}
         </div>
-
-        <TypeSelector />
-        <h2 className="text-1.5xl font-bold mt-10 ml-5">Recommendations</h2>
+        <div className="">
+          <h2 className="text-1.5xl font-bold ml-5">Recommendations</h2>
+          {recommendations.length > 0
+            ? recommendations.map((recommendation, index) => {
+                return (
+                  <RemedyItem
+                    key={"homeItem" + index}
+                    remedyData={remedies.get(recommendation)}
+                  />
+                );
+              })
+            : Array.from(remedies.values()).map((remedy, index) => {
+                return (
+                  <RemedyItem key={"homeItem" + index} remedyData={remedy} />
+                );
+              })}
+        </div>
       </div>
-      {/**map the RemedyDisplays */}
-    </>
+    </div>
   );
 }
 

@@ -11,7 +11,6 @@ import logging
 from openai import OpenAI
 
 client = OpenAI()
-assistant_id = "asst_li5Vl6s7S2hLldXVckc3hhis"
 
 logger = logging.getLogger('cloudfunctions.googleapis.com%2Fcloud-functions')
 logger.setLevel(logging.INFO)
@@ -48,12 +47,33 @@ def sign_up(req: https_fn.CallableRequest) -> bool:
     else:
         return False
 
+@https_fn.on_call()
+def add_remedy(req: https_fn.CallableRequest) -> bool:
+    user_remedy_ref = db.reference(f"users/{req.auth.uid}/onGoingRemedies")
+    if not user_remedy_ref.get():
+        #make an array an set it equal
+        user_remedy_ref.set({
+            0:{
+                "remedyId":req.data["remedyId"],
+                "rating":5,
+                "dateStarted":datetime.now().isoformat()
+            }
+        })
+    else:
+        user_remedy_ref.push({
+            "remedyId":req.data["remedyId"],
+            "rating":5,
+            "dateStarted":datetime.now().isoformat()
+        })
+    make_recommendation(req)
 
 @https_fn.on_call()
 def update_assistant(req: https_fn.CallableRequest) -> bool:
+    create_assistant()
+
+def create_assistant():
     remedies = db.reference(f"remedies").get()
-    assistant = client.beta.assistants.update(
-        assistant_id=assistant_id,
+    assistant = client.beta.assistants.create(
         name="Reemedy Assistant",
         description="The main chatting assistant for finding remedies for a user to use from the reemedy site.",
         instructions="""You are Reemedy's Doctor Assistant!
@@ -80,26 +100,28 @@ Remember, while this assistant can offer valuable guidance and support, it's not
         model= "gpt-4-turbo"
     )
     logger.info(assistant)
+    db.reference(f"assistant/id/").set(assistant.id)
+    db.reference(f"assistant/expiryDate").set(assistant.created_at+600)
 
 @https_fn.on_call()
 def do_chat_message(req: https_fn.CallableRequest) -> bool:
     user_ref = db.reference(f"users/{req.auth.uid}")
     user = user_ref.get()
 
+    #validate user chat thread
+    if"chatThreadExpiry" in user:
+        threadExpiry = datetime.fromtimestamp(user["chatThreadExpiry"]+10)
+        if threadExpiry <= datetime.now():
+            user["chatThreadId"] = ""
+    
+
+    #validate assistant exists
+    assistantExpiry = datetime.fromtimestamp(db.reference(f"assistant/expiryDate").get()+10)
+    if assistantExpiry <= datetime.now():
+        create_assistant()
+
     history_ref = db.reference(f"users/{req.auth.uid}/chatHistory")
-    run = None
-    if "chatThreadId" not in user or user["chatThreadId"] == "":
-        logger.info("creating thread")
-        # no chat thread id present, create a new thread
-        logger.info(user["chatHistory"])
-        all_messages = []
-        for chat in user["chatHistory"]:
-            logger.info(chat)
-            all_messages.append(user["chatHistory"][chat]["message"])
-        all_messages.append(
-            {"role": "user", "content": req.data['message']}
-        )
-        #add to chat history database too
+    def addSelfMessage():
         if not history_ref.get():
             #make an array an set it equal
             history_ref.set({
@@ -117,26 +139,54 @@ def do_chat_message(req: https_fn.CallableRequest) -> bool:
                 },
                 "timeStamp":datetime.now().isoformat()
             })
+    onGoingRemedies = db.reference(f"users/{req.auth.uid}/onGoingRemedies").get()
+    name = user["name"]
+    additional_instructions=f"The users name is {name}."
+    if onGoingRemedies:
+        additional_instructions += f"Here are the remedies the user is currently doing and their ratings of them! {str(additional_instructions)}"
+    
+    run = None
+    if "chatThreadId" not in user or user["chatThreadId"] == "":
+        logger.info("creating thread")
+        # no chat thread id present, create a new thread
+        all_messages = []
+        message_history = history_ref.get()
+        if message_history:
+            for key in message_history:
+                all_messages.append(
+                    message_history[key]["message"]
+                )
+        addSelfMessage()
+        all_messages.append(
+            {"role": "user", "content": req.data['message']}
+        )
+
         logger.info(all_messages)
-        run = client.beta.threads.create_and_run_poll(
-            assistant_id=assistant_id,
-            thread={
-                "messages": all_messages
-            }
+        thread = client.beta.threads.create(
+            messages= all_messages
+        )
+        
+        run = client.beta.threads.runs.create_and_poll(
+            assistant_id=db.reference(f"assistant/id/").get(),
+            thread_id=thread.id,
+            additional_instructions=additional_instructions
         )
         db.reference(f"users/{req.auth.uid}/chatThreadId").set(run.thread_id)
+        db.reference(f"users/{req.auth.uid}/chatThreadExpiry").set(thread.created_at+600)
     else:
         client.beta.threads.messages.create(
             thread_id= user["chatThreadId"],
             role= "user",
             content= req.data['message']
         )
+        addSelfMessage()
         run = client.beta.threads.runs.create_and_poll(
             thread_id= user["chatThreadId"],
-            assistant_id=assistant_id
+            assistant_id=db.reference(f"assistant/id/").get(),
+            additional_instructions=additional_instructions
         )
     logger.info(run)
-    # capture result and add it to the database
+    # capture result and add it to the databasecd .
     run_id = run.id
     generated_messages = client.beta.threads.messages.list(
         thread_id=run.thread_id,
@@ -153,7 +203,7 @@ def do_chat_message(req: https_fn.CallableRequest) -> bool:
             })
     return True
 
-@https_fn.on_call()
+
 def make_recommendation(req: https_fn.CallableRequest) -> list:
     all_remedies_ref = db.reference("/remedies")
     all_remedies = all_remedies_ref.get()
@@ -213,6 +263,7 @@ def make_recommendation(req: https_fn.CallableRequest) -> list:
         # Log the contents
         logger.info(contents)
 
+        db.reference(f"users/{req.auth.uid}/recommendations").set(contents)
         # Convert the list to a JSON-formatted string
         contents_json = json.dumps(contents)
 
