@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import SignInUpButton from "../../SharedComponents/SignInUpButton";
+import { useNavigate } from "react-router-dom";
 import { userContext } from "../../scripts/contexts";
 import blobImage from "../../assets/Blob_Shape.png";
 
@@ -20,7 +19,8 @@ function SignIn() {
   function routeToSignUp() {
     navigate("/signUp")
   }
-  function doSignIn() {
+  function doSignIn(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setPersistence(auth, browserSessionPersistence)
       .then(() => {
         return signInWithEmailAndPassword(auth, email, password).then(
@@ -46,7 +46,7 @@ function SignIn() {
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={(e)=>doSignIn(e)}>
               <div>
                 <label
                   htmlFor="email"
@@ -101,7 +101,6 @@ function SignIn() {
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={doSignIn}
                 >
                   Sign in
                 </button>
