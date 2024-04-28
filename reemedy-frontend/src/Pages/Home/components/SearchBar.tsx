@@ -3,7 +3,7 @@ type SearchBarProps = {
   value: string;
 };
 
-function SearchBar({ updateValue, value }: SearchBarProps) {
+function SearchBar({ updateValue, }: SearchBarProps) {
   return (
     <>
       <div className="w-full ml-5 mt-5 pr-10">

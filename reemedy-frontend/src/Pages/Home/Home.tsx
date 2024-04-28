@@ -1,4 +1,4 @@
-import { useContext, useEffect, SetStateAction, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import TypeSelector from "./components/TypeSelector";
 import IndianFlag from "../../assets/Flag_of_India.svg.png";
@@ -7,7 +7,7 @@ import SouthAfricanFlag from "../../assets/Flag_of_South_Africa.svg.png";
 import MexicanFlag from "../../assets/Flag_of_Mexico.svg.png";
 import IndonesianFlag from "../../assets/Flag_of_Indonesia.svg.png";
 import JapaneseFlag from "../../assets/Flag_of_Japan.svg.png";
-import { db, doChatMessage, makeRecommendation, update_assistant } from '../../scripts/firebase';
+import { db, makeRecommendation, update_assistant } from '../../scripts/firebase';
 import { onValue, ref } from "firebase/database";
 import { userContext } from "../../scripts/contexts";
 

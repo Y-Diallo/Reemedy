@@ -1,66 +1,19 @@
 import { onValue, ref } from "firebase/database";
-import { SetStateAction, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../scripts/contexts";
 import { Remedy, UserRemedyData } from "../../scripts/types";
 import { useNavigate } from 'react-router-dom';
 import { db } from "../../scripts/firebase";
-import RemedyPopup from "./RemedyPopup";
 interface RemedyData {
   remedy: Remedy;
   userRemedy: UserRemedyData;
 }
 
 
-const Popup = ({ remedyData, onClose }: { remedyData: RemedyData; onClose: () => void }) => {
-  return (
-    <div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-75">
-      <div className="bg-white p-6 rounded-lg shadow-md max-w-lg overflow-y-auto">
-        <button className="absolute top-2 right-2" onClick={onClose}>
-          <svg
-            className="w-6 h-6 text-gray-500 hover:text-gray-700 cursor-pointer"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-        <h2 className="text-xl font-semibold mb-4">{remedyData.remedy.name}</h2>
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold">Ingredients:</h3>
-          <ul className="list-disc pl-5">
-            {remedyData.remedy.ingredients && remedyData.remedy.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold">Recipe:</h3>
-          <p className="text-gray-700">{remedyData.remedy.usageMethod}</p>
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold">Benefits:</h3>
-          <ul className="list-disc pl-5">
-            {remedyData.remedy.benefits && remedyData.remedy.benefits.map((benefit, index) => (
-              <li key={index}>{benefit}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-
 function SavedRemedies() {
     const [remedies, setRemedies] = useState<{remedy:Remedy,userRemedy:UserRemedyData}[]>([])
     const {user} = useContext(userContext);
-    const [selectedRemedy, setSelectedRemedy] = useState<RemedyData | null>(null);
+    const [selectedRemedy, ] = useState<RemedyData | null>(null);
     const navigate = useNavigate();
     const {setRemedy} = useContext(userContext);
 
