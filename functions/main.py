@@ -21,18 +21,6 @@ initialize_app()
 @https_fn.on_request()
 def on_request_example(req: https_fn.Request) -> https_fn.Response:
     return https_fn.Response("Hello world!")
-
-# Function to fetch user data from Firebase Realtime Database
-
-def fetch_user_data(email):
-    ref = db.reference('users')
-    snapshot = ref.order_by_child('email').equal_to(email).get()
-
-    if snapshot:
-        user_data = next(iter(snapshot.values()))  # Get the first user data
-        return user_data
-    else:
-        return None
     
     
 @https_fn.on_call()
