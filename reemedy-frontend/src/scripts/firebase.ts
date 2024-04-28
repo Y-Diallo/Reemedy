@@ -28,5 +28,6 @@ export const functions = getFunctions(app);
 // export const enrollInEvent = httpsCallable(functions, 'enrollInEvent');
 // export const unenrollInEvent = httpsCallable(functions, 'unenrollInEvent');
 export const signUp = httpsCallable(functions, 'sign_up');
+export const profile = httpsCallable(functions, 'profile');
 // export const createEvent = httpsCallable(functions, 'createEvent');
 // export const deleteEvent = httpsCallable(functions, 'deleteEvent');
