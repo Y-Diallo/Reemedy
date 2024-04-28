@@ -1,7 +1,5 @@
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { Link, useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 const navbarPages : string[] = ["home", "saved", "chat", "profile"];
 
 function Navbar() {
@@ -10,7 +8,7 @@ function Navbar() {
     return null;
   }
   const navigate = useNavigate();
-  function routeToPage(route:String){
+  function routeToPage(route:string){
     navigate("/" + route)
   }
   return (
