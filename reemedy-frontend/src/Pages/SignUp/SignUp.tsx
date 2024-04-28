@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import SignInUpButton from "../../SharedComponents/SignInUpButton";
 import { useState, useContext } from "react";
 import { userContext } from "../../scripts/contexts";
 import { setPersistence, browserSessionPersistence, createUserWithEmailAndPassword } from "firebase/auth";
