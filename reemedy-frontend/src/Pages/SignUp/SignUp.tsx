@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import SignInUpButton from "../../SharedComponents/SignInUpButton";
-import { useState, useContext } from "react";
+import { useState, useContext, FormEvent } from "react";
 import { userContext } from "../../scripts/contexts";
 import { setPersistence, browserSessionPersistence, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, signUp } from "../../scripts/firebase";
@@ -18,6 +18,7 @@ function SignUp() {
     navigate("/signIn")
   }
   function doSignUp(){
+    console.log("reached")
     //add validation
     if (password !== retypePassword) {
 			//passwords aren't matching
@@ -49,7 +50,7 @@ function SignUp() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm z-20">
-          <form className="space-y-6" action="#" method="POST">
+          <div className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                 Name
@@ -122,14 +123,14 @@ function SignUp() {
             </div>
             <div>
               <button
-                type="submit"
+                
                 className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={doSignUp}
               >
                 Sign Up
               </button>
             </div>
-          </form>
+          </div>
           <p className="mt-10 text-center text-sm text-gray-500">
               <div
                 className="font-semibold leading-6 text-green-600 hover:text-green-500"

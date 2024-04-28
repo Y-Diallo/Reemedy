@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import blobImage from '../../assets/Blob_Shape.png'
+import blobImage from '../assets/Blob_Shape.png';
 function Disclaimer() {
   const navigate = useNavigate();
   const handlePageClick = () =>{
