@@ -27,11 +27,26 @@ function Home() {
       });
     }
   }, []);
+  const {user} = useContext(userContext);
+  const [, setUserData] = useState<unknown>(null);
+
+  useEffect(() => {
+    console.log("On profile page")
+    if(user !== null){
+      console.log(user.uid)
+      onValue(ref(db, `users/${user.uid}/`), (snapshot) => {
+        console.log("inside onValue")
+        const data = snapshot.val();
+        console.log(data)
+        setUserData(data);
+      });
+    }
+  }, []);
   const [search, setSearch] = useState("");
   function doSearch(input: string) {
     setSearch(input);
   }
-  const [selectedCountry, setSelectedCountry] = useState<number | null>(null);
+  // const [selectedCountry, setSelectedCountry] = useState<number | null>(null);
   const countries = [
     { id: 1, name: "American", image: AmericanFlag },
     { id: 2, name: "Indian", image: IndianFlag },
@@ -41,9 +56,9 @@ function Home() {
     { id: 6, name: "Japanese", image: JapaneseFlag },
   ];
 
-  const handleCountrySelection = (countryId: number | null) => {
-    setSelectedCountry(countryId);
-  };
+  // const handleCountrySelection = (countryId: number | null) => {
+  //   setSelectedCountry(countryId);
+  // };
   return (
     <>
       <button className="bg-black" onClick={()=>makeRecommendation()}>recommend</button>
