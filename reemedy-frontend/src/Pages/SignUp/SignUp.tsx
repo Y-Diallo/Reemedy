@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SignInUpButton from "../../SharedComponents/SignInUpButton";
-import { useState, useContext, FormEvent } from "react";
+import { useState, useContext } from "react";
 import { userContext } from "../../scripts/contexts";
 import { setPersistence, browserSessionPersistence, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, signUp } from "../../scripts/firebase";

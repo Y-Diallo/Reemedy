@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const navbarPages : string[] = ["home", "saved", "chat", "profile"];
