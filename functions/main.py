@@ -7,7 +7,7 @@ from firebase_admin import initialize_app, db
 import logging
 from openai import OpenAI
 
-client = OpenAI()
+client = OpenAI(api_key="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")
 assistant_id = "boomboomboom"
 
 logger = logging.getLogger('cloudfunctions.googleapis.com%2Fcloud-functions')
@@ -61,26 +61,68 @@ def sign_up(req: https_fn.CallableRequest) -> bool:
 def do_chat_message(req: https_fn.CallableRequest) -> str:
     user_ref = db.reference(f"users/{req.auth.uid}")
     user = user_ref.get()
-    chat_thread_id = user.chatThreadId
+
     run = None
-    if not chat_thread_id:
+    if "chatThreadId" not in user:
         # no chat thread id present, create a new thread
         all_messages = [chatHistory.message for chatHistory in user.chatHistory].append(
             {"role": "user", "content": req.data['message']}
         )
-        run = client.beta.threads.create_and_run_poll({
-            "assistant_id": assistant_id,
-            "thread": {
+        run = client.beta.threads.create_and_run_poll(
+            assistant_id=assistant_id,
+            thread={
                 "messages": all_messages
             }
-        })
+        )
     else:
-        client.beta.threads.messages.create({
-            "role": "user",
-            "content": req.data['message']
-        })
+        client.beta.threads.messages.create(
+            role= "user",
+            content= req.data['message']
+        )
         run = client.beta.threads.runs.create_and_poll(
-            thread_id=chat_thread_id,
+            thread_id= user["chatThreadId"],
             assistant_id=assistant_id
         )
     logger.info(run)
+    return ""
+
+@https_fn.on_call()
+def make_recommendation(req: https_fn.CallableRequest) -> list:
+    all_remedies_ref = db.reference("remedies")
+    all_remedies = all_remedies_ref.get()
+    
+    user_ref = db.reference(f"users/{req.auth.uid}")
+    user = user_ref.get()
+    
+
+    prompt = ""
+    
+    if user:
+        ongoing_remedies = user.get("onGoingRemedies", [])
+        
+        remedy_info_list = []
+        for remedy_info in all_remedies:
+            remedy_name = remedy_info.get("name", "Unknown Name")
+            remedy_description = remedy_info.get("description", "No description available")
+            remedy_benefits = remedy_info.get("benefits")
+            remedy_info_list.append(f"name: {remedy_name}, description: {remedy_description}, benefits: {remedy_benefits}")
+            
+        list_of_all_remedies = ", ".join(remedy_info_list)
+        
+        if ongoing_remedies:
+            list_of_remedies = ", ".join(ongoing_remedies)
+            prompt = f"I'm currently taking these natural remedies: {list_of_remedies}. From all of these options: {list_of_all_remedies}. Please give me 5 recommendations for similar natural remedies based on remedyId"
+        else: 
+            prompt = f"Please recommend me 5 natural remedies from this based on their remedyId: {list_of_all_remedies}."
+        
+        client = OpenAI()
+        completion = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a Doctor who specializes in natural remedies"},
+                {"role": "user", "content": prompt}
+            ]
+        )
+
+        logger.info(completion.choices[0].message)
+    return []

@@ -7,6 +7,7 @@ import SouthAfricanFlag from "../../assets/Flag_of_South_Africa.svg.png";
 import MexicanFlag from "../../assets/Flag_of_Mexico.svg.png";
 import IndonesianFlag from "../../assets/Flag_of_Indonesia.svg.png";
 import JapaneseFlag from "../../assets/Flag_of_Japan.svg.png";
+import { doChatMessage, makeRecommendation } from '../../scripts/firebase';
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -28,6 +29,8 @@ function Home() {
   };
   return (
     <>
+      <button onClick={()=>makeRecommendation()}>recommend</button>
+      <button onClick={()=>doChatMessage({message:"new message"})}>message</button>
       <div className="w-screen h-screen text-black flex flex-col">
         <h1 className="text-3xl font-bold mt-0 ml-5 mt-10">
           Hello, {"Amanda"}
