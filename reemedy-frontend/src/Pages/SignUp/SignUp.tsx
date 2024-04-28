@@ -31,7 +31,7 @@ function SignUp() {
 				setUser(userCredential.user);
         //TODO signUp is an unimplemented cloud function
         console.log("newSignUp: " + signUp({email: email, name: name}));
-        navigate("/home");
+        navigate("/disclaimer");
       })
     })
     .catch((error) => {
