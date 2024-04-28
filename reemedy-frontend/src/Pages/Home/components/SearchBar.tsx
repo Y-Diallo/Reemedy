@@ -5,7 +5,7 @@ type SearchBarProps={
 }
 
 
-function SearchBar({updateValue, value}:SearchBarProps) {
+function SearchBar({ updateValue, }: SearchBarProps) {
   return (
     <input type="textarea" onChange={(e)=>updateValue(e.target.value)} value={value}/>
   );
