@@ -12,6 +12,7 @@ import { User } from "firebase/auth";
 import {Remedy} from "./scripts/types"
 import { userContext } from "./scripts/contexts";
 import RemedyPopup from "./Pages/SavedRemedies/RemedyPopup";
+import Disclaimer from "./Pages/Disclaimer"
 
 function BaseRouter() {
   const [user, setUser] = useState<User | null>(null);
@@ -23,6 +24,7 @@ function BaseRouter() {
           <Route path="/" element={<Landing />} />
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/home" element={
             user == null? <SignIn/>:<Home/>}/>
           <Route path="/saved" element={
