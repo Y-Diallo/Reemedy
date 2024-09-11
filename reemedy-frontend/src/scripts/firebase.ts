@@ -10,7 +10,7 @@ import { getFunctions, httpsCallable } from "firebase/functions";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB2yPulFYsErvN74Eoc7OjbIRX1V5p6Lk0",
+  apiKey: "",
   authDomain: "reemedy-backend.firebaseapp.com",
   projectId: "reemedy-backend",
   storageBucket: "reemedy-backend.appspot.com",
